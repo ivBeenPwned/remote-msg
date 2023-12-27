@@ -1,0 +1,1 @@
+clear; $ip = Read-Host -Prompt "IP ou Host"; $username = Get-WmiObject -ComputerName $ip -ClassName Win32_ComputerSystem Username | Select-Object -ExpandProperty Username | ForEach-Object {$_.split("\")[1]}; $time = Read-Host -Prompt "Duracao (Em Segundos[1-9999])"; $message = Read-Host -Prompt "Mensagem"; msg $username /server:$ip /time $time $message; pause
